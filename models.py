@@ -11,10 +11,12 @@ class OAuthClients(db.Model):
     access_token_url = db.Column(db.Text)
     authorize_url = db.Column(db.Text)
     api_base_url = db.Column(db.Text)
-
-    # In a later update you will be able to customize the login button 
+    logout_url = db.Column(db.Text)
+    print("Entering database to add logout_url")
+    # In a later update you will be able to customize the login button
     color = db.Column(db.Text)
     icon = db.Column(db.Text)
+    post_logout_redirect_uri =db.Column(db.Text)
 
     def register(self, oauth):
         oauth.register(
@@ -24,6 +26,8 @@ class OAuthClients(db.Model):
             access_token_url=self.access_token_url,
             authorize_url=self.authorize_url,
             api_base_url=self.api_base_url,
+            logout_url=self.logout_url,
+            post_logout_redirect_uri=self.post_logout_redirect_uri,
             client_kwargs={'scope': 'profile roles'}
         )
 

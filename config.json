@@ -1,4 +1,4 @@
 {
-    "name" : "ctfd-sso",
+    "name" : "Keycloak-SSO",
     "route": "/admin/sso"
 }
